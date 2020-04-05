@@ -1,0 +1,52 @@
+{
+  "name": "@phiskills/graphql-client",
+  "version": "0.0.1",
+  "description": "Phi Skills Graphql Client",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "pretest": "npm run build",
+    "prepublish": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/phiskills/graphql-client.js"
+  },
+  "keywords": [
+    "graphql",
+    "client"
+  ],
+  "author": "Phi Skills",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^4.0.0",
+    "@types/express": "^4.17.4",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.0",
+    "@types/node-fetch": "^2.5.5",
+    "babel-jest": "^25.2.6",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "jest": "^25.2.7",
+    "node-fetch": "^2.6.0",
+    "rollup": "^2.3.2",
+    "ts-node": "^8.8.1",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {}
+}
