@@ -1,12 +1,9 @@
-import { build as buildHttp } from '@phiskills/http-client'
+import {
+  build as buildHttp,
+  Options as HttpOptions
+} from '@phiskills/http-client'
 
-export interface Options {
-  host: string,
-  port: number,
-  token: string,
-  secured?: boolean,
-  fetch?: typeof fetch
-}
+export type Options = HttpOptions
 
 export interface Client {
   buildQuery: QueryBuilder
@@ -28,20 +25,24 @@ export function build (config: Readonly<Options>): Readonly<Client> {
   }
 
   function buildQuery (definition: string): Query {
-    return async function <A, B>(variables: A): Promise<B> {
-      return client.post<{data: B}>(target, {
-        query: `query ${definition}`,
-        variables
-      }).then(({data}) => data)
+    return async function<A, B> (variables: A): Promise<B> {
+      return client
+        .post<{ data: B }>(target, {
+          query: `query ${definition}`,
+          variables
+        })
+        .then(({ data }) => data)
     }
   }
 
   function buildMutation (definition: string): Mutation {
-    return async function <A, B>(variables: A): Promise<B> {
-      return client.post<{data : B}>(target, {
-        query: `mutation ${definition}`,
-        variables
-      }).then(({data}) => data)
+    return async function<A, B> (variables: A): Promise<B> {
+      return client
+        .post<{ data: B }>(target, {
+          query: `mutation ${definition}`,
+          variables
+        })
+        .then(({ data }) => data)
     }
   }
 }
